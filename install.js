@@ -63,5 +63,5 @@ module.exports = {
     "params": {
       "html": "Click the 'start' tab to get started!"
     }
-  }}]
+  }]
 }
