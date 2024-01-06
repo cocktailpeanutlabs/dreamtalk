@@ -42,7 +42,7 @@ def infer(audio_input, image_path, emotional_style):
     output_name = f"lipsynced_result_{timestamp}"
 
     if platform.system() == "Windows":
-        python_path = "env\\Scripts\\pythnon"
+        python_path = "env\\Scripts\\python"
     else:
         python_path = "env/bin/python"
 
