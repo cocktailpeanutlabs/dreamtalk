@@ -26,6 +26,12 @@ module.exports = {
   }, {
     "method": "fs.copy",
     "params": {
+      "src": "inference_for_demo_video.py",
+      "dest": "app/inference_for_demo_video.py"
+    }
+  }, {
+    "method": "fs.copy",
+    "params": {
       "src": "requirements.txt",
       "dest": "app/requirements.txt"
     }
