@@ -18,13 +18,13 @@ module.exports = {
         let local = kernel.memory.local[path.resolve(__dirname, "start.js")]
         if (local && local.url) {
           return [{
-            icon: 'fa-solid fa-terminal',
-            text: "Terminal",
-            href: "start.js",
-          }, {
             icon: "fa-solid fa-rocket",
             text: "Open Web UI",
             href: local.url,
+          }, {
+            icon: 'fa-solid fa-terminal',
+            text: "Terminal",
+            href: "start.js",
           }]
         } else {
           return [{
@@ -40,8 +40,16 @@ module.exports = {
           href: "start.js",
         }, {
           icon: "fa-solid fa-plug",
+          text: "Update",
+          href: "update.js",
+        }, {
+          icon: "fa-solid fa-plug",
           text: "Install",
           href: "install.js",
+        }, {
+          icon: "fa-solid fa-broom",
+          text: "Factory Reset",
+          href: "reset.js",
         }]
       }
     } else {
