@@ -45,13 +45,13 @@ module.exports = {
   }, {
     "method": "fs.download",
     "params": {
-      "uri": "https://huggingface.co/damo-vilab/dreamtalk/resolve/main/renderer.pt?download=true",
+      "uri": "https://huggingface.co/cocktailpeanut/dt/resolve/main/renderer.pt?download=true",
       "dir": "app/checkpoints"
     }
   }, {
     "method": "fs.download",
     "params": {
-      "uri": "https://huggingface.co/damo-vilab/dreamtalk/resolve/main/denoising_network.pth?download=true",
+      "uri": "https://huggingface.co/cocktailpeanut/dt/resolve/main/denoising_network.pth?download=true",
       "dir": "app/checkpoints"
     }
   }, {
