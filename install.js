@@ -58,5 +58,10 @@ module.exports = {
         "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}"
       ]
     }
-  }]
+  , {
+    "method": "notify",
+    "params": {
+      "html": "Click the 'start' tab to get started!"
+    }
+  }}]
 }
