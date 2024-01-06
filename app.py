@@ -3,6 +3,7 @@ import subprocess
 from moviepy.editor import VideoFileClip
 import datetime
 import torch
+import platform
 
 if torch.cuda.is_available():
   device = "cuda"
@@ -40,8 +41,13 @@ def infer(audio_input, image_path, emotional_style):
 
     output_name = f"lipsynced_result_{timestamp}"
 
+    if platform.system() == "Windows":
+        python_path = "env\\Scripts\\pythnon"
+    else:
+        python_path = "env/bin/python"
+
     command = [
-        f"python",
+        python_path,
         f"inference_for_demo_video.py",
         f"--wav_path={audio_input}",
         f"--style_clip_path=data/style_clip/3DMM/{emotional_style}",
