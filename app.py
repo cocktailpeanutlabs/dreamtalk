@@ -54,7 +54,7 @@ def infer(audio_input, image_path, emotional_style):
         f"--pose_path=data/pose/RichardShelby_front_neutral_level1_001.mat",
         f"--image_path={image_path}",
         f"--cfg_scale=1.0",
-        f"--max_gen_len=30",
+        f"--max_gen_len=1000",
         f"--output_name={output_name}",
         f"--device={device}"
     ]
