@@ -1,17 +1,9 @@
 module.exports = {
   "cmds": {
-    "nvidia": "pip install torch torchvision torchaudio xformers --index-url https://download.pytorch.org/whl/cu118",
-    "amd": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6",
-    "default": "pip install torch torchvision torchaudio"
+    "nvidia": "pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 xformers --index-url https://download.pytorch.org/whl/cu124",
+    "amd": "pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm6.2",
+    "default": "pip install torch==2.5.0 torchvision==0.20.0 torchaudio==2.5.0 --index-url https://download.pytorch.org/whl/cpu"
   },
-  "requires": [{
-    "type": "conda",
-    "name": "ffmpeg",
-    "args": "-c conda-forge"
-  }, {
-    "gpu": "nvidia",
-    "name": "cuda"
-  }],
   "run": [{
     "method": "shell.run",
     "params": {
@@ -38,9 +30,18 @@ module.exports = {
   }, {
     "method": "shell.run",
     "params": {
+      "message": "conda install -y -c conda-forge cmake"
+    }
+  }, {
+    "method": "shell.run",
+    "params": {
       "path": "app",
       "venv": "env",
-      "message": "pip install -r requirements.txt",
+      "message": [
+        "pip install pysoundfile",
+        "pip install -r requirements.txt",
+        "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}"
+      ]
     }
   }, {
     "method": "fs.download",
@@ -54,15 +55,11 @@ module.exports = {
       "uri": "https://huggingface.co/cocktailpeanut/dt/resolve/main/denoising_network.pth?download=true",
       "dir": "app/checkpoints"
     }
-  }, {
-    "method": "shell.run",
+  },
+  {
+    "method": "fs.link",
     "params": {
-      "path": "app",
-      "venv": "env",
-      "message": [
-        "pip install -r requirements.txt",
-        "{{(gpu === 'nvidia' ? self.cmds.nvidia : (gpu === 'amd' ? self.cmds.amd : self.cmds.default))}}"
-      ]
+      "venv": "app/env"
     }
   }, {
     "method": "notify",
