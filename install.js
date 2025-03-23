@@ -47,11 +47,11 @@ module.exports = async (kernel) => {
         "src": "requirements.txt",
         "dest": "app/requirements.txt"
       }
-//    }, {
-//      "method": "shell.run",
-//      "params": {
-//        "message": "conda install -y -c conda-forge cmake"
-//      }
+    }, {
+      "method": "shell.run",
+      "params": {
+        "message": "conda install -y -c conda-forge cmake"
+      }
     }, {
       "method": "shell.run",
       "params": {
@@ -77,11 +77,11 @@ module.exports = async (kernel) => {
         "dir": "app/checkpoints"
       }
     },
-    {
-      "method": "fs.link",
-      "params": {
-        "venv": "app/env"
-      }
+//    {
+//      "method": "fs.link",
+//      "params": {
+//        "venv": "app/env"
+//      }
     }, {
       "method": "notify",
       "params": {
