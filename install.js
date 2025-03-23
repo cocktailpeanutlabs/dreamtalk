@@ -76,12 +76,11 @@ module.exports = async (kernel) => {
         "uri": "https://huggingface.co/cocktailpeanut/dt/resolve/main/denoising_network.pth?download=true",
         "dir": "app/checkpoints"
       }
-    },
-//    {
-//      "method": "fs.link",
-//      "params": {
-//        "venv": "app/env"
-//      }
+    }, {
+      "method": "fs.link",
+      "params": {
+        "venv": "app/env"
+      }
     }, {
       "method": "notify",
       "params": {
