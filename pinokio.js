@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  version: "2.0",
+  version: "3.0",
   title: "dreamtalk",
   description: "When Expressive Talking Head Generation Meets Diffusion Probabilistic Models (https://github.com/ali-vilab/dreamtalk)",
   icon: "icon.gif",
